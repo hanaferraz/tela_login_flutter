@@ -12,9 +12,9 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Color.fromARGB(255, 160, 198, 216),
-      child: SingleChildScrollView(
+    return Scaffold(
+      backgroundColor: Color(0xFF539FCB),
+      body: SingleChildScrollView(
         child: SizedBox(
           width: MediaQuery.of(context).size.height,
           height: MediaQuery.of(context).size.height,
@@ -23,22 +23,96 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TextField(
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                    labelText: 'E-mail',
-                    border: OutlineInputBorder()),
+                Container(
+                  width: 174,
+                  height: 148,
+                  child: Image.asset('assets/image/monitor.png'),
                 ),
-                TextField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    labelText: 'Senha',
-                    border: OutlineInputBorder()),
+                SizedBox(
+                  height: 26,
                 ),
-                SizedBox(height: 50,),
-                ElevatedButton(onPressed: () {}, 
-                child: Text('Entrar'))
-                ]),
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color(0xFF40000000),
+                          blurRadius: 2.0,
+                          offset: Offset(0, 5),
+                        ),
+                        BoxShadow(
+                          color: Color(0XFF40000000),
+                          offset: Offset(5, 0),
+                        ),
+                      ]),
+                  child: Column(
+                    children: [
+                      TextField(
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: InputDecoration(
+                          labelText: 'E-mail',
+                          border: OutlineInputBorder(),
+                        ),
+                      ),
+                      TextField(
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          labelText: 'Senha',
+                          border: OutlineInputBorder(),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 53,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color(0xFF40000000),
+                              blurRadius: 2.0,
+                              offset: Offset(0, 5),
+                            ),
+                          ]),
+                      height: 42,
+                      width: 355,
+                      margin: EdgeInsets.only(top: 33),
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: Text('Entrar'),
+                      ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color(0xFF40000000),
+                              blurRadius: 2.0,
+                              offset: Offset(0, 5),
+                            ),
+                          ]),
+                      height: 42,
+                      width: 355,
+                      margin: EdgeInsets.only(top: 33),
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: Text('Cadastrar'),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),
