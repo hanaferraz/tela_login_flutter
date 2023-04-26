@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -12,106 +13,122 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xFF539FCB),
-      body: SingleChildScrollView(
-        child: SizedBox(
-          width: MediaQuery.of(context).size.height,
-          height: MediaQuery.of(context).size.height,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  width: 174,
-                  height: 148,
-                  child: Image.asset('assets/image/monitor.png'),
-                ),
-                SizedBox(
-                  height: 26,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color(0xFF40000000),
-                          blurRadius: 2.0,
-                          offset: Offset(0, 5),
-                        ),
-                        BoxShadow(
-                          color: Color(0XFF40000000),
-                          offset: Offset(5, 0),
-                        ),
-                      ]),
-                  child: Column(
-                    children: [
-                      TextField(
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
-                          labelText: 'E-mail',
-                          border: OutlineInputBorder(),
-                        ),
-                      ),
-                      TextField(
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          labelText: 'Senha',
-                          border: OutlineInputBorder(),
-                        ),
-                      ),
-                    ],
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Color(0xFF539FCB),
+        body: SingleChildScrollView(
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(
+                        top: MediaQuery.of(context).size.height * 0.13),
+                    child: Container(
+                      width: 174,
+                      height: 148,
+                      child: Image.asset('assets/image/monitor.png'),
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: 53,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Color(0xFF40000000),
-                              blurRadius: 2.0,
-                              offset: Offset(0, 5),
+                  Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color(0xFF40000000),
+                            blurRadius: 4.0,
+                            offset: Offset(4, 4),
+                          ),
+                        ]),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(right: 23),
+                          child: TextField(
+                            keyboardType: TextInputType.emailAddress,
+                            decoration: InputDecoration(
+                              icon: ImageIcon(
+                                AssetImage('assets/image/usuario.png'),
+                              ),
+                              labelText: 'E-mail',
+                              labelStyle: GoogleFonts.ovo(
+                                fontSize: 15,
+                              ),
+                              alignLabelWithHint: true,
                             ),
-                          ]),
-                      height: 42,
-                      width: 355,
-                      margin: EdgeInsets.only(top: 33),
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        child: Text('Entrar'),
-                      ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Color(0xFF40000000),
-                              blurRadius: 2.0,
-                              offset: Offset(0, 5),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 23),
+                          child: TextField(
+                            obscureText: true,
+                            decoration: InputDecoration(
+                              icon: ImageIcon(
+                                AssetImage('assets/image/cadeado.png'),
+                              ),
+                              labelText: 'Senha',
+                              labelStyle: GoogleFonts.ovo(
+                                fontSize: 15,
+                              ),
+                              alignLabelWithHint: true,
                             ),
-                          ]),
-                      height: 42,
-                      width: 355,
-                      margin: EdgeInsets.only(top: 33),
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        child: Text('Cadastrar'),
-                      ),
+                          ),
+                        ),
+                        Container(
+                          height: 40,
+                          alignment: Alignment(0.8, -0.2),
+                          child: Text(
+                            "Credenciais inválidas.",
+                            style: GoogleFonts.ovo(
+                              fontSize: 10,
+                              textStyle: TextStyle(
+                                color: Color(0xFFB30000),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                )
-              ],
+                  ),
+                  SizedBox(
+                    height: 53,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Entrar',
+                      style: GoogleFonts.neuton(fontSize: 22),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 33,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Cadastrar',
+                      style: GoogleFonts.neuton(fontSize: 22),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Expanded(
+                    child: Image.asset(
+                      'assets/image/paisagem.png',
+                      width: 380,
+                      height: 383,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
